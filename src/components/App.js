@@ -1,6 +1,7 @@
 import Component from './Component.js';
 import Header from './Header.js';
 import TodoList from './TodoList.js';
+import todos from '../../data/todos.js';
 
 class App extends Component {
 
@@ -10,7 +11,7 @@ class App extends Component {
     const header = new Header();
     const headerDOM = header.render();
 
-    const todoList = new TodoList();
+    const todoList = new TodoList({ todos });
     const todoListDOM = todoList.render();
 
     const main = dom.querySelector('main');
