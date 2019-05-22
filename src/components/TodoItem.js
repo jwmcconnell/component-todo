@@ -17,7 +17,7 @@ class TodoItem extends Component {
         <input type="checkbox" ${checked}/>
         ${todo.task}
       </label>
-  </li>
+    </li>
     `;
   }
 
