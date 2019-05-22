@@ -16,7 +16,12 @@ class App extends Component {
     const todoList = new TodoList({ todos });
     const todoListDOM = todoList.render();
 
-    const addTodo = new AddTodo();
+    const addTodo = new AddTodo({
+      onAdd: (newTodo) => {
+        todos.unshift(newTodo);
+        todoList.update({ todos });
+      }
+    });
     const addTodoDOM = addTodo.render();
 
     const main = dom.querySelector('main');
