@@ -13,7 +13,15 @@ class App extends Component {
     const header = new Header();
     const headerDOM = header.render();
 
-    const todoList = new TodoList({ todos });
+    const todoList = new TodoList({
+      todos,
+      onRemove: (todoToRemove) => {
+        const index = todos.indexOf(todoToRemove);
+        todos.splice(index, 1);
+
+        todoList.update({ todos });
+      }
+    });
     const todoListDOM = todoList.render();
 
     const addTodo = new AddTodo({

@@ -16,6 +16,7 @@ test('Checked TodoItem', assert => {
       <input type="checkbox" checked/>
       Learn templates
     </label>
+    <button class="remove">x</button>
   </li>
   `;
   //Act 
@@ -38,6 +39,7 @@ test('Unchecked TodoItem', assert => {
       <input type="checkbox" />
       Learn forEach
     </label>
+    <button class="remove">x</button>
   </li>
   `;
   //Act 

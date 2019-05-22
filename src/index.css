@@ -28,6 +28,7 @@ header {
   padding: 10px;
   margin: 5px;
   border: 1px solid black;
+  position: relative;
 }
 
 form {
@@ -45,4 +46,18 @@ input {
   display: block;
   height: 3em;
   width: 10em;
+}
+
+.remove {
+  position: absolute;
+  color: red;
+  border: 0;
+  background: transparent;
+  font-size: 1.3em;
+  top: 5px;
+  right: 5px;
+}
+
+.remove:hover {
+  cursor: pointer;
 }
