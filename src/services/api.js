@@ -1,7 +1,7 @@
 import findById from './find-by-id.js';
 
 const api = {
-  key: 'passage',
+  key: 'todos',
   save(todo) {
     let todos = api.getAll();
     todos.push(todo);

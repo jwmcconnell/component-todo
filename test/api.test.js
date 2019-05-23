@@ -3,7 +3,7 @@ const test = QUnit.test;
 
 QUnit.module('api');
 
-const key = 'test-stats';
+const key = 'test-todos';
 api.key = key;
 
 test('round trip todo data', assert => {
