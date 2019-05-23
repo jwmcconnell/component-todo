@@ -44,6 +44,12 @@ class App extends Component {
         api.update(todoToToggle);
 
         todoList.update({ todos: api.getAll() });
+      },
+      onUpdate: (todoToUpdate) => {
+
+        api.update(todoToUpdate);
+
+        todoList.update({ todos: api.getAll() });
       }
     });
     const todoListDOM = todoList.render();
