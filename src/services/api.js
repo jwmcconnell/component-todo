@@ -27,6 +27,28 @@ const api = {
       return true;
     }
     return false;
+  },
+  remove(id) {
+    let todos = api.getAll();
+    let newTodos = todos.filter(todo => {
+      return todo.id !== id;
+    });
+    const todoData = JSON.stringify(newTodos);
+    localStorage.setItem(api.key, todoData);
+  },
+  update(newTodo) {
+    let todos = api.getAll();
+
+    const newTodos = todos.map(todo => {
+      if(todo.id === newTodo.id) {
+        return newTodo;
+      }
+
+      return todo;
+    });
+
+    const todoData = JSON.stringify(newTodos);
+    localStorage.setItem(api.key, todoData);
   }
 };
 
