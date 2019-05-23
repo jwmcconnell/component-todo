@@ -28,7 +28,7 @@ class TodoItem extends Component {
 
     let checked = '';
 
-    if (todo.completed) {
+    if(todo.completed) {
       checked = 'checked';
     }
 
