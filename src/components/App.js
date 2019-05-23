@@ -30,6 +30,12 @@ class App extends Component {
         todos.splice(index, 1);
 
         todoList.update({ todos });
+      },
+      toggleDone: (todoToToggle) => {
+        const index = todos.indexOf(todoToToggle);
+        todos[index].completed = !todos[index].completed;
+
+        todoList.update({ todos });
       }
     });
     const todoListDOM = todoList.render();
