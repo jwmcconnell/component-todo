@@ -4,7 +4,7 @@ const api = {
   key: 'todos',
   save(todo) {
     let todos = api.getAll();
-    todos.push(todo);
+    todos.unshift(todo);
     const todoData = JSON.stringify(todos);
     localStorage.setItem(api.key, todoData);
   },
@@ -19,6 +19,14 @@ const api = {
       todos = [];
     }
     return todos;
+  },
+  isEmpty() {
+    const todoData = localStorage.getItem(api.key);
+    let todos = JSON.parse(todoData);
+    if(!todos) {
+      return true;
+    }
+    return false;
   }
 };
 

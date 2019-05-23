@@ -49,3 +49,31 @@ test('Save multiple get a specific one', assert => {
   //assert
   assert.deepEqual(result, todo2);
 });
+
+test('Test isEmpty returns true', assert => {
+  localStorage.removeItem(key);
+  //arrange
+  const expected = true;
+  //act
+  const result = api.isEmpty();
+  //assert
+  assert.deepEqual(result, expected);
+});
+
+test('Test isEmpty returns false', assert => {
+  localStorage.removeItem(key);
+  //arrange
+
+  let date = Date.now();
+  const todo = {
+    id: 'Learn APIs' + date,
+    task: 'learn APIs',
+    completed: false
+  };
+  const expected = false;
+  //act
+  api.save(todo);
+  const result = api.isEmpty();
+  //assert
+  assert.deepEqual(result, expected);
+});
