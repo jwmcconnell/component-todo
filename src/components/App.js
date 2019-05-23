@@ -43,6 +43,7 @@ class App extends Component {
         api.update(todoToUpdate);
 
         todoList.update({ todos: api.getAll() });
+        filter.update();
       }
     });
     const todoListDOM = todoList.render();
