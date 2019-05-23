@@ -22,7 +22,8 @@ class TodoItem extends Component {
     });
 
     checkbox.addEventListener('input', () => {
-      toggleDone(todo);
+      todo.completed = !todo.completed;
+      onUpdate(todo);
     });
 
     edit.addEventListener('click', () => {

@@ -38,13 +38,6 @@ class App extends Component {
 
         todoList.update({ todos: api.getAll() });
       },
-      toggleDone: (todoToToggle) => {
-        todoToToggle.completed = !todoToToggle.completed;
-
-        api.update(todoToToggle);
-
-        todoList.update({ todos: api.getAll() });
-      },
       onUpdate: (todoToUpdate) => {
 
         api.update(todoToUpdate);
