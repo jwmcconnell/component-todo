@@ -1,5 +1,6 @@
 import Component from './Component.js';
 import TodoItem from './TodoItem.js';
+import api from '../services/api.js';
 
 class TodoList extends Component {
 
@@ -13,7 +14,11 @@ class TodoList extends Component {
     todos.forEach(todo => {
       const todoItem = new TodoItem({ todo, onRemove, toggleDone });
       const todoItemDOM = todoItem.render();
+
       list.appendChild(todoItemDOM);
+      if(!api.get(todo.id)) {
+        api.save(todo);
+      }
     });
 
     return list;
