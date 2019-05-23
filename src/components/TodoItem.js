@@ -6,7 +6,6 @@ class TodoItem extends Component {
     const todoItem = this.renderDOM();
 
     const onRemove = this.props.onRemove;
-    const toggleDone = this.props.toggleDone;
     const onUpdate = this.props.onUpdate;
     const todo = this.props.todo;
 
