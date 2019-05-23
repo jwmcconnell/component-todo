@@ -4,46 +4,58 @@ import TodoList from './TodoList.js';
 import AddTodo from './AddTodo.js';
 import Filter from './Filter.js';
 import filterTodo from '../filter-todo.js';
+import api from '../services/api.js';
 
 import todos from '../../data/todos.js';
+import findById from '../services/find-by-id.js';
 
 class App extends Component {
 
   render() {
     const dom = this.renderDOM();
 
+    if(api.isEmpty()) {
+      todos.forEach(todo => {
+        api.save(todo);
+      });
+    }
+
     const header = new Header();
     const headerDOM = header.render();
 
     const filter = new Filter({
       onFilter: (filter) => {
-        const newTodos = filterTodo(filter, todos);
+        const newTodos = filterTodo(filter, api.getAll());
         todoList.update({ todos: newTodos });
       }
     });
     const filterDOM = filter.render();
 
     const todoList = new TodoList({
-      todos,
+      todos: api.getAll(),
       onRemove: (todoToRemove) => {
-        const index = todos.indexOf(todoToRemove);
-        todos.splice(index, 1);
+        // const index = todos.indexOf(todoToRemove);
+        // todos.splice(index, 1);
 
-        todoList.update({ todos });
+        api.remove(todoToRemove.id);
+
+        todoList.update({ todos: api.getAll() });
       },
       toggleDone: (todoToToggle) => {
-        const index = todos.indexOf(todoToToggle);
-        todos[index].completed = !todos[index].completed;
+        todoToToggle.completed = !todoToToggle.completed;
 
-        todoList.update({ todos });
+        api.update(todoToToggle);
+
+        todoList.update({ todos: api.getAll() });
       }
     });
     const todoListDOM = todoList.render();
 
     const addTodo = new AddTodo({
       onAdd: (newTodo) => {
-        todos.unshift(newTodo);
-        todoList.update({ todos });
+        // todos.unshift(newTodo);
+        api.save(newTodo);
+        todoList.update({ todos: api.getAll() });
         filter.update();
       }
     });
