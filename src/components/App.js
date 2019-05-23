@@ -7,7 +7,6 @@ import filterTodo from '../filter-todo.js';
 import api from '../services/api.js';
 
 import todos from '../../data/todos.js';
-import findById from '../services/find-by-id.js';
 
 class App extends Component {
 
@@ -34,8 +33,6 @@ class App extends Component {
     const todoList = new TodoList({
       todos: api.getAll(),
       onRemove: (todoToRemove) => {
-        // const index = todos.indexOf(todoToRemove);
-        // todos.splice(index, 1);
 
         api.remove(todoToRemove.id);
 
@@ -53,7 +50,6 @@ class App extends Component {
 
     const addTodo = new AddTodo({
       onAdd: (newTodo) => {
-        // todos.unshift(newTodo);
         api.save(newTodo);
         todoList.update({ todos: api.getAll() });
         filter.update();
