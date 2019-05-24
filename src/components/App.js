@@ -37,6 +37,7 @@ class App extends Component {
         api.remove(todoToRemove.id);
 
         todoList.update({ todos: api.getAll() });
+        filter.update();
       },
       onUpdate: (todoToUpdate) => {
 
