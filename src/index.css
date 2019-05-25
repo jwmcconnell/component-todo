@@ -1,0 +1,63 @@
+body {
+  margin: 0;
+  background-color: grey;
+}
+
+h1 {
+  margin: 0;
+  padding: 10px;
+}
+
+header {
+  background-color: black;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+#todos{
+  background-color: darkslategrey;
+  width: 20em;
+  margin: auto;
+  color: white;
+  padding: 10px;
+}
+
+#todos li {
+  list-style: none;
+  padding: 10px;
+  margin: 5px;
+  border: 1px solid black;
+  position: relative;
+}
+
+form {
+  text-align: center;
+  margin: 1em;
+  font-size: 1.3em;
+}
+
+input {
+  font-size: .9em;
+}
+
+#add {
+  margin: 1em auto;
+  display: block;
+  height: 3em;
+  width: 10em;
+}
+
+.remove {
+  position: absolute;
+  color: red;
+  border: 0;
+  background: transparent;
+  font-size: 1.3em;
+  top: 5px;
+  right: 5px;
+}
+
+.remove:hover {
+  cursor: pointer;
+}
