@@ -61,3 +61,22 @@ input {
 .remove:hover {
   cursor: pointer;
 }
+
+.edit {
+  position: absolute;
+  top: 12px;
+  right: 30px;
+}
+
+.edit:hover {
+  cursor: pointer;
+}
+
+.edit-input {
+  background: transparent;
+  color: white;
+}
+
+.hidden {
+  display: none;
+}

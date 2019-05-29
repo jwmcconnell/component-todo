@@ -13,7 +13,9 @@ class AddTodo extends Component {
       const formData = new FormData(form);
 
       const newTodo = {
-        task: formData.get('todo')
+        id: formData.get('todo') + Date.now(),
+        task: formData.get('todo'),
+        completed: false
       };
 
       onAdd(newTodo);
